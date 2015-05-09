@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script>
+function ajax(a,b,c){//url,function,just a placeholder
+ c=new XMLHttpRequest;
+ c.open('GET',a);
+ c.onload=b;
+ c.send()
+}
+
+function alertTxt(){
+ alert(this.response)
+}
+
+window.onload=function(){
+ ajax('hello.txt',alertTxt)
+}
+</script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript Objects</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/blackboard.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Logan's Portfolio</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="jsobjects.html">JS Objects</a></li>
+                        <li><a href="">DOM Manipulation</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CSS3 <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Transitions</a></li>
+                                <li><a href="#">Transformations</a></li>
+                                <li><a href="#">Animations</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="storage.html">Local Data Storage</a></li>
+                        <li><a href="ajax.html">AJAX</a></li>
+                        <li><a href="">JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid banner"></div>
+        <div class="container">
+            <h1>Javascript Objects</h1>
+            <h2>What is a Javascript Object?</h2>
+            <p>A JS Object in its simplest form can be understood as a digital representation of a real-world object. 
+                To use a different example from W3Schools, I would liken it to a dog.</p>
+            <p>A dog has attributes like hair color, weight, breed, name, age, and more. 
+                These attributes are known in JS as <strong>properties</strong>.<br>
+                A dog also has behaviors like sit, run, bark, sleep, eat, jump, fetch, and many more. 
+                These behaviors are known as <strong>methods</strong>.</p>
+            <p>All dogs will have these properties and methods, 
+                but the values of each property and the execution of each method will vary from dog to dog.</p>
+            <p><strong>More to come...</strong></p>
+            
+            
+            <h2>Code Sample</h2>
+            <h3>Javascript</h3>
+            <pre><code data-language="javascript">
+// This is a how to set a prototype for an object called 'dog'. This is called a constructor function.
+
+function dog(name, breed, age, haircolor) {
+    this.name = name;
+    this.breed = breed;
+    this.age = age;
+    this.hairColor = haircolor;
+    this.dogYears = function() {return this.age * 7;};
+}
+
+// Using the 'new' keyword, objects of the type 'dog' can be created.
+
+var myDog = new dog("Freckles", "Dalmation", 7, "white with black spots");
+var notMyDog = new dog("Fifi", "Poodle", 3, "white");
+
+// Display the values in an HTML element.
+
+document.getElementById("demo").innerHTML = "This is my dog, " + myDog.name +
+    ". He is a " + myDog.age + " year old " + myDog.breed + ". As you can see, his fur is " +
+    myDog.hairColor + ". He is " + myDog.dogYears() + " years old in Dog Years.";
+            </code></pre>
+            
+            <h3>Output:</h3>
+            <div id="demo" class="well"></div>
+                        
+            <h3>Sources</h3>
+            <ul>
+                <li><a href="http://www.w3schools.com/js/js_objects.asp" title="W3Schools - JS Objects" target="_blank">
+                        Introduction to JS Objects - W3Schools</a></li>
+                <li><a href="http://www.w3schools.com/js/js_object_definition.asp" title="W3Schools - JS Object Definition" target="_blank">
+                        JS Object Definition - W3Schools</a></li>
+                <li><a href="http://www.w3schools.com/js/js_properties.asp" title="W3Schools - JS Object Properties" target="_blank">
+                        JS Object Properties - W3Schools</a></li>
+                <li><a href="http://www.w3schools.com/js/js_object_methods.asp" title="W3Schools - JS Object Methods" target="_blank">
+                        JS Objects Methods - W3Schools</a></li>
+                <li><a href="http://www.w3schools.com/js/js_object_prototypes.asp" title="W3Schools - JS Object Prototypes" target="_blank">
+                        JS Objects Prototypes - W3Schools</a></li>
+            </ul>
+        </div>
+        <footer class="container-fluid">
+            
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/rainbow.min.js"></script>
+        <script src="js/generic.js"></script>
+        <script src="js/javascript.js"></script>
+        <script>
+            function dog(name, breed, age, haircolor) {
+                this.name = name;
+                this.breed = breed;
+                this.age = age;
+                this.hairColor = haircolor;
+                this.dogYears = function() {return this.age * 7;};
+            }
+            // Using the 'new' keyword, objects of the type 'person' can be created.
+            var myDog = new dog("Freckles", "Dalmation", 7, "white with black spots");
+            var notMyDog = new dog("Fifi", "Poodle", 3, "white");
+            // Display the values in an HTML element.
+            document.getElementById("demo").innerHTML = "This is my dog, " + myDog.name +
+                ". He is a " + myDog.age + " year old " + myDog.breed + ". As you can see, his fur is " +
+                myDog.hairColor + ". He is " + myDog.dogYears() + " years old in Dog Years.";
+        </script>
+    </body>   
+</html>
