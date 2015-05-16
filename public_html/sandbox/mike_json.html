@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <p>http://jsfiddle.net/planetoftheweb/XcpGN/</p>
+        
+<div id="json_example1"></div>
+<br>
+<div id="json_example2"></div>
+<br>
+<div id="json_example3"></div>
+
+        <script>
+            var data = {"groupMembers":[
+        {
+            "firstname":"Logan",
+            "lastname":"Mitchell",
+            "major":"Web Development",
+            "location":"California",
+            "app":"Crash Reporter",
+            "github":"mitchell-logan"
+        },
+        {
+            "firstname":"Will",
+            "lastname":"Mitchell",
+            "major":"Information Technology",
+            "location":"California",
+            "app":"Fuzz Brain",
+            "github":"nelson-william"
+        },
+        {
+            "firstname":"Michael",
+            "lastname":"Roberts",
+            "major":"Information Technology",
+            "location":"Zambia",
+            "app":"Game Grade",
+            "github":"robertsmichael"
+        }
+    ]}
+    
+    document.getElementById("json_example1").innerHTML = data.groupMembers[0].firstname + " " + data.groupMembers[0].lastname + "<br>" + data.groupMembers[0].major + "<br>" + data.groupMembers[0].location + "<br>" + data.groupMembers[0].app + "<br>" + data.groupMembers[0].github;
+
+document.getElementById("json_example2").innerHTML =  data.groupMembers[1].firstname + " " + data.groupMembers[1].lastname + "<br>" + data.groupMembers[1].major + "<br>" + data.groupMembers[1].location + "<br>" + data.groupMembers[1].app + "<br>" + data.groupMembers[1].github;
+
+document.getElementById("json_example3").innerHTML =  data.groupMembers[2].firstname + " " + data.groupMembers[2].lastname + "<br>" + data.groupMembers[2].major + "<br>" + data.groupMembers[2].location + "<br>" + data.groupMembers[2].app + "<br>" + data.groupMembers[2].github;
+
+            </script>
+            
+        
+    </body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/blackboard.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Logan's Portfolio</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="jsobjects.html">JS Objects <span class="label label-warning">Review</span></a></li>
+                        <li><a href="">DOM Manipulation</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CSS3 <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Transitions</a></li>
+                                <li><a href="#">Transformations</a></li>
+                                <li><a href="#">Animations</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="storage.html">Local Data Storage <span class="label label-warning">Review</span></a></li>
+                        <li><a href="ajax.html">AJAX <span class="label label-warning">Review</span></a></li>
+                        <li><a href="json.html">JSON <span class="label label-danger">New</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid banner"></div>
+        <div class="container">
+            <h1>JSON Data Serialization</h1>
+            <h2>Provided Code Sample - W3Schools <span class="small">(with minor changes)</span></h2>
+            <h3>Deserialization</h3>
+            <p>In this example of <strong>deserialization</strong>, the JSON data is stored as a string in the text file "myTutorials.txt". 
+                It is retrieved from an AJAX call and parsed into an array of objects. 
+                That array is then passed to a function that iterates through it and creates an HTML string 
+                that is then output to the "sources" div as can be seen under the Sources section of this page.<br>
+            </p>
+            <h3>Javascript</h3>
+            <pre><code data-language="javascript">
+// Example of retrieving JSON data from a text file on the server.
+var xmlhttp = new XMLHttpRequest();
+var url = "myTutorials.txt";
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = JSON.parse(xmlhttp.responseText);
+        myFunction(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var out = "<ul>";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += '<li><a href="' + arr[i].url + '" title="' + arr[i].display + '" target="_blank">' + 
+        arr[i].display + '</a></li>';
+    }
+    out += "</ul>";
+    document.getElementById("sources").innerHTML = out;
+}
+            </code></pre>
+            <h3>Text File: "myTutorials.txt"</h3>
+            <pre><code data-language="javascript">
+[
+{
+"display": "JSON Tutorial - W3Schools",
+"url": "http://www.w3schools.com/json/default.asp"
+},
+{
+"display": "JSON Intro - W3Schools",
+"url": "http://www.w3schools.com/json/json_intro.asp"
+},
+{
+"display": "JSON Syntax - W3Schools",
+"url": "http://www.w3schools.com/json/json_syntax.asp"
+},
+{
+"display": "JSON HowTo - W3Schools",
+"url": "http://www.w3schools.com/json/json_eval.asp"
+},
+{
+"display": "JSON Http Request - W3Schools",
+"url": "http://www.w3schools.com/json/json_http.asp"
+},
+{
+"display": "JSON Files - W3Schools",
+"url": "http://www.w3schools.com/json/json_files.asp"
+},
+{
+"display": "JSON Example - W3Schools",
+"url": "http://www.w3schools.com/json/json_example.asp"
+},
+{
+"display": "JSON - MDN",
+"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+},
+{
+"display": "JSON.parse() - MDN",
+"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"
+},
+{
+"display": "JSON.stringify - MDN",
+"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
+}
+]
+            </code></pre>
+            <h3>Serialization</h3>
+            <p>In this example from Mozilla Developer Network, <strong>serialization</strong> is used in combination 
+                with Local Data Storage to store information associated with an object called session. 
+                I have added an output for the "stringified" version of the object to demonstrate how the data is stored.
+            </p>
+            <h3>Javascript</h3>
+            <pre><code data-language="javascript">
+// Creating an example of JSON serialization and deserialization combined with Local Storage
+var session = {
+  'screens': [],
+  'state': true
+};
+session.screens.push({ 'name': 'screenA', 'width': 450, 'height': 250 });
+session.screens.push({ 'name': 'screenB', 'width': 650, 'height': 350 });
+session.screens.push({ 'name': 'screenC', 'width': 750, 'height': 120 });
+session.screens.push({ 'name': 'screenD', 'width': 250, 'height': 60 });
+session.screens.push({ 'name': 'screenE', 'width': 390, 'height': 120 });
+session.screens.push({ 'name': 'screenF', 'width': 1240, 'height': 650 });
+
+// Converting the JSON string with JSON.stringify()
+// then saving with localStorage in the name of session
+var strSession = JSON.stringify(session);
+localStorage.setItem('session', strSession);
+
+// Example of how to transform the String generated through 
+// JSON.stringify() and saved in localStorage in JSON object again
+var restoredSession = JSON.parse(localStorage.getItem('session'));
+
+// Now restoredSession variable contains the object that was saved
+// in localStorage
+function showStringify(){
+    document.getElementById('string').innerHTML = strSession;
+}
+function showObj(){
+    var output = "";
+    for (var value in restoredSession){
+        output += value + ": ";
+        if (value == "screens"){
+            output += "<br>";
+            for (var s in restoredSession[value]){
+                output += restoredSession[value][s].name + ": " + restoredSession[value][s].width + " x " + restoredSession[value][s].height + "<br>";
+            }
+        } else {
+            output += restoredSession[value] + "<br>";
+        }
+    }
+    document.getElementById('string').innerHTML = output;
+}
+            </code></pre>
+            <h3>Output</h3>
+            <button class="btn btn-primary" onclick="showStringify()">Show Serialized String</button> 
+            <button class="btn btn-primary" onclick="showObj()">Show as Formatted Object Values</button><br><br>
+            <div class="well" id="string"></div>
+            
+        </div>
+        <footer class="container-fluid">
+            <div class="container text-center">
+                <h3>Sources</h3>
+                <div id="sources"></div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/rainbow.min.js"></script>
+        <script src="js/generic.js"></script>
+        <script src="js/javascript.js"></script>
+        <script>
+            // Example of retrieving JSON data from a text file on the server.
+            var xmlhttp = new XMLHttpRequest();
+            var url = "myTutorials.txt";
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var myArr = JSON.parse(xmlhttp.responseText);
+                    myFunction(myArr);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+            function myFunction(arr) {
+                var out = "<ul class='list-inline list-unstyled'>";
+                var i;
+                for(i = 0; i < arr.length; i++) {
+                    out += '<li><a href="' + arr[i].url + '" title="' + arr[i].display + '" target="_blank">' + 
+                    arr[i].display + '</a></li>';
+                }
+                out += "</ul>";
+                /*for(i = 0; i < arr.length; i++) {
+                    out += arr[i].firstName + ' ' + 
+                    arr[i].lastName + '<br>';
+                }*/
+                document.getElementById("sources").innerHTML = out;
+            }
+        </script>
+        <script>
+            // Creating an example of JSON serialization and deserialization combined with Local Storage
+            var session = {
+              'screens': [],
+              'state': true
+            };
+            session.screens.push({ 'name': 'screenA', 'width': 450, 'height': 250 });
+            session.screens.push({ 'name': 'screenB', 'width': 650, 'height': 350 });
+            session.screens.push({ 'name': 'screenC', 'width': 750, 'height': 120 });
+            session.screens.push({ 'name': 'screenD', 'width': 250, 'height': 60 });
+            session.screens.push({ 'name': 'screenE', 'width': 390, 'height': 120 });
+            session.screens.push({ 'name': 'screenF', 'width': 1240, 'height': 650 });
+            // Converting the JSON string with JSON.stringify()
+            // then saving with localStorage in the name of session
+            var strSession = JSON.stringify(session);
+            localStorage.setItem('session', strSession);
+            // Example of how to transform the String generated through 
+            // JSON.stringify() and saved in localStorage in JSON object again
+            var restoredSession = JSON.parse(localStorage.getItem('session'));
+            // Now restoredSession variable contains the object that was saved
+            // in localStorage
+            function showStringify(){
+                document.getElementById('string').innerHTML = strSession;
+            }
+            function showObj(){
+                var output = "";
+                for (var value in restoredSession){
+                    output += value + ": ";
+                    if (value == "screens"){
+                        output += "<br>";
+                        for (var s in restoredSession[value]){
+                            output += restoredSession[value][s].name + ": " + restoredSession[value][s].width + " x " + restoredSession[value][s].height + "<br>";
+                        }
+                    } else {
+                        output += restoredSession[value] + "<br>";
+                    }
+                }
+                document.getElementById('string').innerHTML = output;
