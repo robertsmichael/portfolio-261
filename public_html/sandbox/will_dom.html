@@ -1,0 +1,87 @@
+
+
+<br>
+<header></header>
+<br>
+<h1>DOM Manipulation</h1>
+
+<br>
+<p>
+DOM = Document Object Model
+<br>
+Allows the content of a page to by dynamically accessed and updated.
+Standard for changing HTML on a page.
+</p>
+<p>
+</p><h2>Ways to find elements:</h2>
+document.getElementById()<br>
+document.getElementsByTagName()<br>
+document.getElementsByClassName()
+<p></p>
+
+<script>
+//Demo1
+document.getElementById("demo1").innerHTML = "What happened?";
+</script>
+<p id="demo1">
+    By assigning an ID such as "demo" to this paragraph, I can change the content.
+</p>
+
+<p>
+</p><h2>Ways to change elements:</h2>
+.innerHTML=<br>
+.attribute=<br>
+.setAttribute(attribute,value)<br>
+.style.property=
+<p></p>
+
+<script>
+//Demo2
+var x = document.getElementsByTagName('p');
+document.getElementById('demo2').innerHTML = x[3].innerHTML;
+</script>
+<p id="demo2">
+    By assigning an ID such as "demo" to this paragraph, I can change the content.
+</p>
+<p>
+</p><h2>Adding/Deleting Elements:</h2>
+document.createElement()<br>
+document.removeChild()<br>
+document.appendChild()<br>
+document.replaceChild()<br>
+document.write(text)
+<p></p>
+
+<script>
+//Demo3
+var y = document.getElementById("demo3");
+y.style.color = "blue";
+y.style.fontFamily = "Arial";
+y.style.fontSize = "7em";
+</script>
+
+<p id="demo3">
+This can be manipulated via DOM.
+</p>
+
+<script>
+function clickFunction() {
+    document.write("That's It!");
+    }
+</script>
+
+<p>
+    Document.write() example, mostly used for debugging<br>
+    <button onclick="clickFunction()"> I can change the content with DOM.</button>
+</p>
+<p>
+</p><h2>Team Meeting</h2>
+Teaching: <br>
+Questions: 
+<p></p>
+
+<aside>
+http://www.w3schools.com/jsref/dom_obj_document.asp
+</aside>
+
+

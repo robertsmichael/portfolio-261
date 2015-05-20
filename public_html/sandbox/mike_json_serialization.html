@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JSON Serialization</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>JSON Data Serialization</div>
+        
+        <script>
+        
+        var obj1 = {num:123,str:"learning javascript",bool:true,o:{x:1,y:2,z:3},thisisnull:null,arr:[1,2,3,4,5]}
+
+        var s = JSON.stringify(obj1);
+
+        console.log(typeof(s));
+        
+        var x = JSON.parse(obj1);
+        
+        console.log(typeof(x));
+        
+        var obj2 = {num:456};
+        
+        var combo = "[" + obj1 + obj2 + "]";
+        
+        console.log(combo);
+        
+        
+
+        </script>
+        
+    </body>
+</html>

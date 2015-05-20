@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Portfolio - CSS Transform</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/blackboard.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <style>
+            #demo div {
+                width: 300px;
+                height: 100px;
+                border: 1px solid black;
+            }
+            #demo div:first-child {
+                background-color: darkkhaki;
+            }
+            #demo2 {
+                background-color: lightslategray;
+                transform: scale(.5,.5);
+            }
+            #demo1 {
+                background-color: aquamarine;
+                transform: rotate(25deg);
+            }
+            #demo3 {
+                background-color: beige;
+                transform: translate(400px,-175px);
+            }
+            #myDemo div{
+                width: 150px;
+                height: 150px;
+                padding: 0 5px;
+                line-height: 150px;
+                display: inline-block;
+                margin: 15px;
+                border: 1px solid #333;
+                border-radius: 5px;
+                text-align: center;
+                font-weight: 900;
+                box-shadow: 4px 4px 10px -4px #555;
+            }
+            #rotate:hover {
+                transform:rotate(40deg);
+            }
+            #rotateX:hover {
+                transform:rotateX(155deg);
+            }
+            #rotateY:hover {
+                transform:rotateY(170deg);
+            }
+            #scale:hover {
+                transform:scale(1.25,.75);
+            }
+            #scaleX:hover {
+                transform:scaleX(1.8);
+            }
+            #scaleY:hover {
+                transform:scaleY(.25);
+            }
+            #skew:hover {
+                transform:skew(20deg,30deg);
+            }
+            #skewX:hover {
+                transform:skewX(30deg);
+            }
+            #skewY:hover {
+                transform:skewY(125deg);
+            }
+            #translate:hover {
+                transform:translate(50px,-40px);
+            }
+            #translateX:hover {
+                transform:translateX(-30px);
+            }
+            #translateY:hover {
+                transform:translateY(70px);
+            }
+            #matrix1:hover {
+                transform:matrix(-1, 0.1, -0.3, -.5, 20, 10);
+            }
+            #matrix2:hover {
+                transform:matrix(.5, -0.5, 0.2, -1, -50, 30);
+            }
+            #matrix3:hover {
+                transform:matrix(1, 0, 0.5, 1, 45, -50);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Logan's Portfolio</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="jsobjects.html">JS Objects</a></li>
+                        <li><a href="dom.html">DOM Manipulation <span class="label label-danger">New</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CSS3 <span class="label label-danger">New<span class="caret"></span></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Transitions</a></li>
+                                <li><a href="transform.html">Transformations <span class="label label-warning">Review</span></a></li>
+                                <li><a href="animate.html">Animations <span class="label label-danger">New</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="storage.html">Local Data Storage</a></li>
+                        <li><a href="ajax.html">AJAX <span class="label label-warning">Review</span></a></li>
+                        <li><a href="json.html">JSON <span class="label label-danger">Revisit</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid banner"></div>
+        <div class="container">
+            <h1>CSS3 Transformations</h1>
+            <p>CSS3 Transforms take a block-level HTML element and perform some action on it instantly. 
+                The basic actions that can be performed (not including 3D transforms for now) are: 
+                Rotate, Scale, Skew, Translate, and Matrix (which combines several). 
+                These transformations can be limited to either the X or Y axes, or, in most case be combined into one. 
+                Rotate is the only one whose non X or Y version, actually rotates on the Z axis.
+            </p>
+            <h2>Provided Code Sample</h2>
+            <h3>CSS</h3>
+            <pre><code data-language="css">
+#demo div {
+    width: 300px;
+    height: 100px;
+    background-color: darkkhaki;
+    border: 1px solid black;
+}
+#demo2 {
+    background-color: lightslategray;
+    transform: scale(.5,.5);
+}
+#demo1 {
+    background-color: aquamarine;
+    transform: rotate(25deg);
+}
+#demo3 {
+    background-color: beige;
+    transform: translate(400px,-175px);
+}
+            </code></pre>
+            <h3>Demo</h3>
+            <section id="demo">
+                <div>
+                    STANDARD
+                </div>
+                <br>
+                <div id='demo1'>
+                    ROTATE
+                </div>
+                <br>
+                <div id="demo2">
+                    SCALE
+                </div>
+                <div id="demo3">
+                    TRANSLATE 2D.  Moved up 75px, and to the right 250px.
+                </div>
+                <br>
+            </section>
+            
+            <h2>My Code Sample</h2>
+            <h3>CSS</h3>
+            <pre><code data-language="css">
+#rotate:hover {
+    transform:rotate(40deg);
+}
+#rotateX:hover {
+    transform:rotateX(155deg);
+}
+#rotateY:hover {
+    transform:rotateY(170deg);
+}
+#scale:hover {
+    transform:scale(1.25,.75);
+}
+#scaleX:hover {
+    transform:scaleX(1.8);
+}
+#scaleY:hover {
+    transform:scaleY(.25);
+}
+#skew:hover {
+    transform:skew(20deg,30deg);
+}
+#skewX:hover {
+    transform:skewX(30deg);
+}
+#skewY:hover {
+    transform:skewY(125deg);
+}
+#translate:hover {
+    transform:translate(50px,-40px);
+}
+#translateX:hover {
+    transform:translateX(-30px);
+}
+#translateY:hover {
+    transform:translateY(70px);
+}
+#matrix1:hover {
+    transform:matrix(-1, 0.1, -0.3, -.5, 20, 10);
+}
+#matrix2:hover {
+    transform:matrix(.5, -0.5, 0.2, -1, -50, 30);
+}
+#matrix3:hover {
+    transform:matrix(1, 0, 0.5, 1, 45, -50);
+}
+            </code></pre>
+            <h3>Demo</h3>
+            <p>Hover over each of the elements below to see the transformation take place.</p>
+            <section id="myDemo">
+                <div>
+                    None
+                </div><br>
+                <div class="bg-success" id='rotate'>
+                    Rotate
+                </div>
+                <div class="bg-success" id='rotateX'>
+                    Rotate X
+                </div>
+                <div class="bg-success" id='rotateY'>
+                    Rotate Y
+                </div><br>
+                <div class="bg-info" id="scaleX">
+                    Scale X
+                </div>
+                <div class="bg-info" id="scaleY">
+                    Scale Y
+                </div>
+                <div class="bg-info" id="scale">
+                    Scale both
+                </div><br>
+                <div class="bg-danger" id="skewX">
+                    Skew X
+                </div>
+                <div class="bg-danger" id="skewY">
+                    Skew Y
+                </div>
+                <div class="bg-danger" id="skew">
+                    Skew both
+                </div><br>
+                <div class="bg-warning" id="translateX">
+                    Translate X
+                </div>
+                <div class="bg-warning" id="translateY">
+                    Translate Y
+                </div>
+                <div class="bg-warning" id="translate">
+                    Translate both
+                </div><br>
+                <div class="bg-primary" id="matrix1">
+                    Matrix 1
+                </div>
+                <div class="bg-primary" id="matrix2">
+                    Matrix 2
+                </div>
+                <div class="bg-primary" id="matrix3">
+                    Matrix 3
+                </div>
+                <br>
+            </section>
+
+        </div>
+        <footer class="container-fluid">
+            <div class="container text-center">
+                <h3>Sources</h3>
+                <div id="sources">
+                    <ul class="list-inline list-unstyled">
+                        <li><a href="http://www.w3schools.com/cssref/css3_pr_transform.asp" title="W3Schools - CSS Transform" target="_blank">CSS Transform - W3Schools</a></li>
+                        <li><a href="http://www.w3schools.com/css/css3_2dtransforms.asp" title="W3Schools - CSS 2D Transform" target="_blank">CSS 2D Transform - W3Schools</a></li>
+                        <li><a href="http://www.w3schools.com/css/css3_3dtransforms.asp" title="W3Schools - CSS 3D Transform" target="_blank">CSS 3D Transform - W3Schools</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/rainbow.min.js"></script>
+        <script src="js/generic.js"></script>
+        <script src="js/css.js"></script>
+    </body>
+</html>
