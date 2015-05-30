@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <div>JSON Data Serialization</div>
-        
+        <!--
         <script>
         
         var obj1 = {num:123,str:"learning javascript",bool:true,o:{x:1,y:2,z:3},thisisnull:null,arr:[1,2,3,4,5]}
@@ -30,10 +30,51 @@ and open the template in the editor.
         var combo = "[" + obj1 + obj2 + "]";
         
         console.log(combo);
-        
-        
+  
 
         </script>
+        -->
+                 <script>
+                function getInfo() {
+                    var name = document.getElementById("Name").value;
+                    var make = document.getElementById("Make").value;
+                    var model = document.getElementById("Model").value;
+                    var year = document.getElementById("Year").value;
+                    var damage = document.getElementById("Damage").value;
+                    var gps = document.getElementById("GPS"").value;
+                    var s_name = JSON.stringify(name);
+                    var s_make = JSON.stringify(make);
+                    var s_model = JSON.stringify(model);
+                    var s_year = JSON.stringify(year);
+                    var s_damage = JSON.stringify(damage);
+                    var s_gps = JSON.stringify(gps);
+                    var s_everything = "[" + s_name + s_make + s_model + s_year + s_damage + s_gps + "]";
+                    console.log(s_everything);
+        }
         
+                    function stringifyInfo() {
+                        var s_name = JSON.stringify(name);
+                        var s_make = JSON.stringify(make);
+                        var s_model = JSON.stringify(model);
+                        var s_year = JSON.stringify(year);
+                        var s_damage = JSON.stringify(damage);
+                        var s_gps = JSON.stringify(gps);
+                        var s_everything = "[" + s_name + s_make + s_model + s_year + s_damage + s_gps + "]";
+                        console.log(s_everything);
+        }
+             
+        </script>
+        
+        Name: <input type="text" name="Name" id="Name"><br />
+        Make: <input type="text" name="Make" id="Make"><br />
+        Model: <input type="text" name="Model" id="Model"><br />
+        Year: <input type="text" name="Year" id="Year"><br />
+        Estimated damage amount: <input type="text" name="Damage" id="Damage"><br />
+        GPS coordinates: <input type="text" name="GPS" id="GPS"><br />
+                <p><button onclick="getInfo()">get info</button></p>
+         <p><button onclick="stringifyInfo()">Stringify Data</button></p>
+         
+
+
     </body>
 </html>

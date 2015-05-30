@@ -1,0 +1,58 @@
+<html>
+<head>
+</head>
+
+<body>
+	<h1>Car information</h1>
+		<form id="carInfo">
+			ID: <input id="id" type="text" name="make" value=""><br>
+			Make: <input id="make" type="text" name="make" value=""><br>
+			Model: <input id="model" type="text" name="model" value=""><br>
+			Year: <input id="year" type="text" name="year" value=""><br>
+			Color: <input id="color" type="text" name="color" value=""><br>
+			Insurance: <input id="insurance" type="text" name="insurance" value=""><br>
+		</form>
+
+		<button onclick="insertData()">Submit</button><br>
+	
+	<div id="display"></div>
+
+	<script>
+		var key = Math.random();
+
+		var carRegistry = {};
+
+		var id = document.getElementById("id");
+		var make = document.getElementById("make");
+		var model = document.getElementById("model");
+		var year = document.getElementById("year");
+		var color = document.getElementById("color");
+		var insurance = document.getElementById("insurance");
+		var carInfoLog = document.getElementById("carInfoLog");
+
+		var carInfoDisplay = document.getElementById('display');
+      
+      function insertData() {
+
+			carRegistry.id = id.value;
+			carRegistry.make = make.value;
+			carRegistry.model = model.value;
+			carRegistry.year = year.value;
+			carRegistry.color = color.value;
+			carRegistry.insurance = insurance.value;
+        
+        carDatabase.push(carRegistry);
+        var cardb = JSON.stringify(carDatabase);
+        localStorage.setItem('carDatabase', cardb);
+        
+        
+			carInfoDisplay.innerHTML = carRegistry.make + " " + carRegistry.model + " " + carRegistry.year + " " + carRegistry.color + " " + carRegistry.insurance
+      }
+
+
+
+	</script>
+
+
+</body>
+</html>
