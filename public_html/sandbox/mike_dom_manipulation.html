@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DOM manipulation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script src="./platform/platform.js"></script>
+        <script>
+            function counter() {
+                var counter = 1;
+                var counter_el = document.getElementById("counter");
+                window.setInterval(function() {
+                counter_el.innerHTML = counter++
+            }, 1000);
+        }
+        
+            function showTime(){
+                document.getElementById('time').innerHTML = new Date();
+            }
+            
+            function displayBrowserInfo(){
+                if (jQuery.browser.mozilla) {
+                    document.getElementById('browser').innerHTML = 'You are using Firefox ' + $.browser.version;
+                }
+                else if ($.browser.chrome) {
+                    document.getElementById('browser').innerHTML = 'You are using Chrome ' + $.browser.version;
+                }
+                else if ($.browser.msie) {
+                    document.getElementById('browser').innerHTML = 'You are using Internet Explorer ' + $.browser.version;
+                }
+                else {
+                    document.getElementById('browser').innerHTML = 'I don\'t know what browser you are using ' + '[ ' + $.browser + ' ' + $.browser.version + ']';
+                }
+            }
+            
+            function displayPi(){
+                document.getElementById('pi').innerHTML = Math.PI;
+            }
+            
+            function sysInfo() {
+                document.getElementById('sysinfo').innerHTML = navigator.userAgent + '<br>' + navigator.appName + '<br>' + platform.name + '<br>' + platform.version + '<br>' + platform.layout + '<br>' + platform.os + '<br>' + platform.description + '<br>';
+            }
+        
+        </script>
+    </head>
+    <body>
+        <h1>DOM manipulation</h1>
+        <button onclick="counter()">Counter</button>
+    <div id="counter"></div><br><br>
+      
+        <button onclick="showTime()">Show Time</button>
+        <div id="time"></div><br><br>
+        
+        <button onclick="displayBrowserInfo()">Show Browser Info</button>
+        <div id="browser"></div><br><br>
+        
+        <button onclick="displayPi()">Show Pi</button>
+        <div id="pi"></div><br><br>
+        
+        <button onclick="sysInfo()">Show system Info</button>
+        <div id="sysinfo"></div>
+    </body>
+</html>
