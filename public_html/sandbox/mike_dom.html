@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>DOM 5-20-15</title>
+        <title>DOM 6-20-15</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -18,46 +18,51 @@ and open the template in the editor.
         
         <p>I tried to create a DOM manipulation regarding something we might use in our Insurance Crash Reporter app.
         
-        <div>
-            <li>
-                <ul>Geico</ul>
-                <ul>State Farm</ul>
-                <ul>Farmers</ul>
-                <ul>All State</ul>
-                <ul>Esurance</ul>
+     
+            <ul>
+                <li>Geico</li>
+                <li>State Farm</li>
+                <li>Farmers</li>
+                <li>All State</li>
+                <li>Esurance</li>
                 
-            </li>
-        </div>
+            </ul>
+
         <div>
             <p>Please type in what insurance you have from the list</p>
             <input type="text" name="insuranceName" id="insuranceName">
         </div>    
-        <p><button onclick="findInsurance()">Find insurance</button></p>
+        <p><button onclick="findInsurance()">Find insurance</button><button onclick="clearInsurance()">Reset</button></p>
         
         <script>
             function findInsurance() {
                 var insuranceName = document.getElementById('insuranceName').value;
                 if (insuranceName == 'Geico') {
-                    document.write('Please visit ' + '<a href="https://www.geico.com/">Geico</a>');
+                    document.getElementById('insurance').innerHTML = 'Please visit ' + '<a href="https://www.geico.com/">Geico</a>';
                 }
                 else if (insuranceName == 'All State') {
-                    document.write('Please visit ' + '<a href="https://www.allstate.com/auto-insurance.aspx">All State</a>');
+                    document.getElementById('insurance').innerHTML = 'Please visit ' + '<a href="https://www.allstate.com/auto-insurance.aspx">All State</a>';
                 }
                 else if (insuranceName == 'Farmers') {
-                    document.write('Please visit ' + '<a href="www.farmers.com/auto/">Farmers</a>');
+                    document.getElementById('insurance').innerHTML = 'Please visit ' + '<a href="www.farmers.com/auto/">Farmers</a>';
                 }
                 else if (insuranceName == 'State Farm') {
-                    document.write('Please visit ' + '<a href="https://www.statefarm.com/insurance/auto">State Farm</a>');
+                    document.getElementById('insurance').innerHTML = 'Please visit ' + '<a href="https://www.statefarm.com/insurance/auto">State Farm</a>';
                 }
                 else if (insuranceName == 'Esurance') {
-                    document.write('Please visit ' + '<a href="https://www.esurance.com/insurance/car">Esurance</a>');
+                    document.getElementById('insurance').innerHTML = 'Please visit ' + '<a href="https://www.esurance.com/insurance/car">Esurance</a>';
                 }
                 else {
-                    document.write('Please enter a real insurance company')
+                    document.getElementById('insurance').innerHTML = 'Please enter a real insurance company';
                 }
                 
             }
+            
+            function clearInsurance() {
+                document.getElementById('insurance').innerHTML = '';
+            }
         </script>
+        <div id="insurance"></div>
         
     </body>
 </html>

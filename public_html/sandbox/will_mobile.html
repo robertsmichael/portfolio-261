@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Mobile Events</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/rainbow.css" rel="stylesheet" type="text/css">
+        <script src="/rainbow.min.js"></script>
+        <style>
+            body {
+                padding: 2em;
+            }
+            p {
+                width: 300px;
+                padding: 25px;
+                border-style: dashed;
+                margin: 25px;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="wrapper">
+        <h1>Mobile Events</h1>
+        <p>
+           Mobile events are also referred to as "Touch" events, and primarily
+           deal with DOM interactions on a mobile device where objects are
+           "touched" rather than "clicked."
+        </p>
+        <h2>Touch Events:</h2>
+        <p>
+            <em>ontouchcancel</em>: occurs when touch is stopped. <br>
+            <em>ontouchend</em>: occurs when finger is removed from screen.<br>
+            <em>ontouchmove</em>: occurs when finger is dragged across screen.<br>
+            <em>ontouchstart</em>: occurs when finger is placed on screen.
+        </p>
+        <br>
+        <h2>Demo</h2>
+        <pre><code data-language='javascript'>
+    http://www.javascriptkit.com/javatutors/touchevents.shtml
+    window.addEventListener('load', function(){
+ 
+    var demo1 = document.getElementById('demo1')
+    var status = document.getElementById('status')
+    var startx = 0
+    var dist = 0
+ 
+    demo1.addEventListener('touchstart', function(e){
+        var touchobj = e.changedTouches[0] // reference first touch point
+        startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
+        statusdiv.innerHTML = 'Status: touchstart<br> ClientX: ' + startx + 'px'
+        e.preventDefault()
+    }, false)
+ 
+    demo1.addEventListener('touchmove', function(e){
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        var dist = parseInt(touchobj.clientX) - startx
+        status.innerHTML = 'Status: touchmove<br> Horizontal distance traveled: ' + dist + 'px'
+        e.preventDefault()
+    }, false)
+ 
+    demo1.addEventListener('touchend', function(e){
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        status.innerHTML = 'Status: touchend<br> Resting x coordinate: ' + touchobj.clientX + 'px'
+        e.preventDefault()
+    }, false)
+ 
+}, false)
+        </code></pre>
+        <div id="demo1">
+            <h2>Touch 'n' Drag!</h2>
+        </div>
+        <h2 id='status'>Status:</h2>
+        
+        <br>
+        <h2>Demo 2:</h2>
+        <pre>
+            <code data-language='javascript'>
+               //demo2
+                window.addEventListener('load', function(){
+ 
+                var dragBox = document.getElementById('dragBox'),
+                boxleft, // left position of moving box
+                startx, // starting x coordinate of touch point
+                dist = 0, // distance traveled by touch point
+                touchobj = null // Touch object holder
+ 
+                dragBox.addEventListener('touchstart', function(e){
+                    touchobj = e.changedTouches[0] // reference first touch point
+                    boxleft = parseInt(dragBox.style.left) // get left position of box
+                    startx = parseInt(touchobj.clientX) // get x coord of touch point
+                    e.preventDefault() // prevent default click behavior
+                }, false)
+ 
+                dragBox.addEventListener('touchmove', function(e){
+                    touchobj = e.changedTouches[0] // reference first touch point for this event
+                    var dist = parseInt(touchobj.clientX) - startx // calculate dist traveled by touch point
+                    // move box according to starting pos plus dist
+                    // with lower limit 0 and upper limit 380 so it doesn't move outside track:
+                    dragBox.style.left = ( (boxleft + dist > 380)? 380 : (boxleft + dist < 0)? 0 : boxleft + dist ) + 'px'
+                    e.preventDefault()
+                }, false)
+  
+            </code>
+        </pre>
+        <div id="track" class="track">
+        <div id="dragBox" style="left:0; top:0">Drag the Box!</div>
+        </div>
+    <footer>
+    	<h2>Teaching Presentation:</h2>
+	Teaching: <br>
+	Questions: 
+    </footer>
+    </div>
+    <script>
+    //demo1
+    window.addEventListener('load', function(){
+ 
+    var demo1 = document.getElementById('demo1')
+    var status = document.getElementById('status')
+    var startx = 0
+    var dist = 0
+ 
+    demo1.addEventListener('touchstart', function(e){
+        var touchobj = e.changedTouches[0] // reference first touch point
+        startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
+        statusdiv.innerHTML = 'Status: touchstart<br> ClientX: ' + startx + 'px'
+        e.preventDefault()
+    }, false)
+ 
+    demo1.addEventListener('touchmove', function(e){
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        var dist = parseInt(touchobj.clientX) - startx
+        status.innerHTML = 'Status: touchmove<br> Horizontal distance traveled: ' + dist + 'px'
+        e.preventDefault()
+    }, false)
+ 
+    demo1.addEventListener('touchend', function(e){
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        status.innerHTML = 'Status: touchend<br> Resting x coordinate: ' + touchobj.clientX + 'px'
+        e.preventDefault()
+    }, false)
+ 
+    }, false)
+    //demo2
+    window.addEventListener('load', function(){
+ 
+    var dragBox = document.getElementById('dragBox'),
+    boxleft, // left position of moving box
+    startx, // starting x coordinate of touch point
+    dist = 0, // distance traveled by touch point
+    touchobj = null // Touch object holder
+ 
+    dragBox.addEventListener('touchstart', function(e){
+        touchobj = e.changedTouches[0] // reference first touch point
+        boxleft = parseInt(dragBox.style.left) // get left position of box
+        startx = parseInt(touchobj.clientX) // get x coord of touch point
+        e.preventDefault() // prevent default click behavior
+    }, false)
+ 
+    dragBox.addEventListener('touchmove', function(e){
+        touchobj = e.changedTouches[0] // reference first touch point for this event
+        var dist = parseInt(touchobj.clientX) - startx // calculate dist traveled by touch point
+        // move box according to starting pos plus dist
+        // with lower limit 0 and upper limit 380 so it doesn't move outside track:
+        dragBox.style.left = ( (boxleft + dist > 380)? 380 : (boxleft + dist < 0)? 0 : boxleft + dist ) + 'px'
+        e.preventDefault()
+    }, false)
+ 
+    }, false)
+    </script>
+    </body>
+</html>
